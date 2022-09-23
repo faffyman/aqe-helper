@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="no-js dark " lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>TRIANGLES</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--  <link rel="manifest" href="site.webmanifest">-->
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body class="dark:bg-slate-800 ring-slate-900/5  dark:text-white mt-5 text-base font-medium tracking-tight">
+
+  <!-- Add your site or application content here -->
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/triangles.js"></script>
+
+  <!-- Nav Bar -->
+  <nav class="dark:text-slate-800 font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full">
+    <div class="">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 24 24" class="stroke-2 hover:stroke-2 stroke-sky-400 h-7 w-7 flex-shrink-1  fill-sky-400 hover:fill-sky-400"   data-tags="leaf"><g  class="fill-sky-600 hover:fill-cyan-800" transform="scale(0.0234375 0.0234375)">
+          <path d="M1011.328 134.496c-110.752-83.928-281.184-134.034-455.91-134.034-216.12 0-392.226 75.456-483.16 207.020-42.708 61.79-66.33 134.958-70.208 217.474-3.454 73.474 8.884 154.726 36.684 242.146 94.874-284.384 359.82-507.102 665.266-507.102 0 0-285.826 75.232-465.524 308.192-0.112 0.138-2.494 3.090-6.614 8.698-36.080 48.278-67.538 103.162-91.078 165.328-39.87 94.83-76.784 224.948-76.784 381.782h128c0 0-19.43-122.222 14.36-262.79 55.89 7.556 105.858 11.306 150.852 11.306 117.678 0 201.37-25.46 263.388-80.124 55.568-48.978 86.198-114.786 118.624-184.456 49.524-106.408 105.654-227.010 268.654-320.152 9.33-5.332 15.362-14.992 16.056-25.716s-4.040-21.080-12.606-27.572z"></path>
+        </g>
+        </svg>
+    </div>
+    <div class="">GROW</div>
+    <div class="mb-2 sm:mb-0">
+      Total: <span id="totalscore"></span> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;Triangles Score: <span id="trianglesscore"></span>
+    </div>
+    <div>
+      <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <li>
+          <a href="index.html" target="_top"  class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
+        </li>
+        <li>
+          <a href="triangles.html" target="_top"  class="block py-2 pr-4 pl-3 text-slate-700 dark:text-sky-400 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Triangles</a>
+        </li>
+        <li>
+          <a href="perimeters.html" target="_top"  class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Shapes</a>
+        </li>
+        <li>
+          <a href="kilo-litre.html" target="_top"  class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Kilos &amp; Litres</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- // End NavBar -->
+
+
+  <div class=" space-y-2 mx-auto shadow-md overflow-hidden">
+  <div class="md:flex md:flex-row basis-1/2">
+
+    <div class="md:shrink-0">
+      <canvas id="triangle" width="600" height="600" class="bg-white rounded rounded-xl"></canvas>
+    </div>
+
+    <div class="basis-1/2 text-slate-500 dark:text-sky-400 mt-2 text-sm px-8 py-8">
+
+
+      <div class="md:space-y-4 ">
+         <span class="text-4xl mt-1 font-bold">Triangle Questions</span>
+      </div>
+
+      <div class="py-4">
+        <label class="mb-2 " for="ttype">What type of Triangle is this?</label><br />
+        <select name="ttype" id="ttype" class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40" >
+          <option value="">-Pick One-</option>
+          <option value="rightangle">Right Angle </option>
+          <option value="equi">Equilateral</option>
+          <option value="isosceles">Isosceles</option>
+          <option value="scalene">Scalene</option>
+        </select>
+        <br /><br />
+      </div>
+
+      <div class="py-4">
+
+        <label class="mb-2 " for="angleq">What is the missing Angle X ?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="angleq" type="text" />
+        <br /><br />
+      </div>
+
+
+      <div class=" py-4">
+        <label class="mb-2 " for="tperim">What is the PERIMETER of this triangle?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="tperim" type="text" />
+
+      </div>
+
+      <div class="py-4">
+        <label class="mb-2 " for="tarea">What is the AREA of this triangle?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="tarea" type="text" />
+      </div>
+
+
+    <button onclick="checkAnswers()" class="w-full py-1 px-1 max-w-lg rounded-lg border bg-teal-600 text-orange-400 border-orange-200 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40" > CHECK ANSWERS</button>
+<br /><br />
+
+      <button id="nextquestion" onclick="newQuestion()" class="rounded-md px-3 py-1 bg-slate-300 text-slate-500 border-teal-700 " disabled="true" >Next Question &raquo; </button>
+
+  </div>
+    </div>
+</div>
+
+
+  <script>
+
+    function newQuestion() {
+      resetForm();
+      coords = generateCoords();
+      calculateAngles();
+      drawTriangle('triangle',coords)
+    }
+
+    newQuestion();
+
+    logScore();
+
+  </script>
+
+
+
+</body>
+
+</html>
