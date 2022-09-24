@@ -83,15 +83,7 @@ function generateCoords()
 
 }
 
-function roundTo10(N)
-{
-  return Math.ceil(N / 10) * 10
-}
 
-
-function randomIntFromInterval(min, max) { // min and max included
-  return  Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 
 function calculateLineDistance(point1, point2) {
@@ -134,12 +126,7 @@ function calculateAngles() {
 }
 
 
-// Convert Radians to Degrees
-function radians_to_degrees(radians)
-{
-  var pi = Math.PI;
-  return radians * (180/pi);
-}
+
 
 /**
  * Draw our triangle
@@ -181,7 +168,7 @@ function drawTriangle(canvasID, points)
     if(type == 'rightangleleft') {
      x3coord = x3+10;
       xmodifierb = 20;
-     // draw eth right-angle marker
+     // draw the right-angle marker
       context.beginPath();
       context.moveTo(x1+10,y1);
       context.lineTo(x1+10,y1-10);
@@ -203,17 +190,27 @@ function drawTriangle(canvasID, points)
 
     }
 
-    if(type=="equi" || type=="isosceles") {
+    if(type=="equi" || type=="isosceles" || type=="scalene") {
       // Draw a height indicator dotted line
       var hstart = x2-((x2-x1)/2);
       context.beginPath();
-      context.fillStyle = `rgb(180,180,180,0.5)`;
-      context.strokeStyle = `rgb(180,180,180,0.7)`;
-      context.moveTo(hstart,y2);
-      context.lineTo(hstart,y3);
+      context.fillStyle = `rgb(240,180,180,0.5)`;
+      context.strokeStyle = `rgb(240,180,180,0.7)`;
+      //context.moveTo(hstart,y2);
+      //context.lineTo(hstart,y3);
+
+      context.moveTo(x3,y3);
+      context.lineTo(x3,y1);
+
       context.setLineDash([10, 10,10,10]);
       context.stroke();
       context.setLineDash([]);
+
+      // ADD a height label
+      context.fillStyle = 'red'
+      theight =  parseInt((y1-y3)/10);
+      context.fillText("h=" +theight +"cm", x3+2, y3 + ((y1-y3)/2) -30);
+
     }
 
 
@@ -224,6 +221,8 @@ function drawTriangle(canvasID, points)
 
 
     context.fillText("X", x3coord, y3 + 40);
+
+    //
 
     // build an Object for comparison
     populateTriangle();
@@ -384,7 +383,7 @@ function logScore() {
 
    // show or update visual scores
    document.getElementById('totalscore').innerText = myTotalScore ?? 0;
-   document.getElementById('trianglesscore').innerText = myTotalScore ?? 0;
+   document.getElementById('trianglesscore').innerText = myTrianglesScore ?? 0;
 
 
 
