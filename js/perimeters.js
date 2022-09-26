@@ -4,7 +4,7 @@
 var thisScore = 0;
 var isRecheck = 0;
 
-// Hin t ~~ converts to closest Integer
+// Hint ~~ converts to closest Integer
 
 // a rectangle with aportion cut out
 // the CutOUt will be in one of the four corners
@@ -25,12 +25,44 @@ var cutOutRectangle = {
 };
 
 
-function drawShape(){
+function drawShape(canvasID){
+
+  positions = ['TL', 'TR', 'BR', 'BL' ];
+  cutOutRectangle.cutoutPosition = positions.randomitem();
+  // for 1 to 6; draw line, turn 90deg, draw line
+
+  possLengths= rangeBig(320,550,10);
+  possHeights = rangeBig(250,550,10);
+  maxLength = possLengths.randomitem();
+  maxHeight = possHeights.randomitem();
+
+  cutOutRectangle.length = maxLength / randItem([2,3,4,5,6,7]); //rand divisor between 2 and 6
+  cutOutRectangle.height = maxHeight / randItem([3,4,5,6]) //rand divisor between 2 and 6;
+  console.log(cutOutRectangle);
+
+  // start upper left corner
+  var canvas = document.getElementById(canvasID);
+  if (canvas.getContext) {
+    var context = canvas.getContext('2d');
+
+    // clear it incas eit had a previous drawing.
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    context.moveTo(50,50);
+    context.lineTo(maxLength,50)
+    context.stroke();
+  }
 
   addLabelsToShape();
 }
 
 function addLabelsToShape(){}
+
+
+
+//  Helpers
+// ------------------------------------------------
+
 
 
 // ------------------------------------------------
@@ -46,6 +78,8 @@ function checkAnswers(){
 
   checkShadedArea();
 
+  logScore('perimeterscore')
+
 }
 
 function checkSizeA(){}
@@ -59,25 +93,5 @@ function checkShadedArea(){}
 
 // -----------------------------
 
-function logScore() {
-
-  myTotalScore = localStorage.getItem('myscore');
-  thisActivityScore = localStorage.getItem('perimeterscore');
-
-  myTotalScore = parseInt(myTotalScore) + parseInt(thisScore);
-  thisActivityScore = parseInt(thisActivityScore) + parseInt(thisScore);
-
-  localStorage.setItem('perimeterscore', thisActivityScore);
-  localStorage.setItem('myscore', myTotalScore);
-
-  if(isNaN( thisActivityScore) ) {
-    thisActivityScore = 0;
-  }
-
-  // show or update visual scores
-  document.getElementById('totalscore').innerText = myTotalScore ?? 0;
-  document.getElementById('perimeterscore').innerText = thisActivityScore ?? 0;
-
-}
 
 function resetForm(){}

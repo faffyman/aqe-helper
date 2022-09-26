@@ -265,7 +265,7 @@ function checkAnswers() {
     isRecheck = true;
   },500);
   console.log({'score':thisScore})
-  logScore();
+  logScore('trianglesscore');
 
   // Allow user to jump to next question now
   var nq = document.getElementById('nextquestion');
@@ -370,21 +370,3 @@ function resetForm() {
 }
 
 
-function logScore() {
-
-   myTotalScore = localStorage.getItem('myscore');
-   myTrianglesScore = localStorage.getItem('mytrianglesscore');
-
-   myTotalScore = parseInt(myTotalScore) + parseInt(thisScore);
-   myTrianglesScore = parseInt(myTrianglesScore) + parseInt(thisScore);
-
-   localStorage.setItem('mytrianglesscore', myTrianglesScore);
-   localStorage.setItem('myscore', myTotalScore);
-
-   // show or update visual scores
-   document.getElementById('totalscore').innerText = myTotalScore ?? 0;
-   document.getElementById('trianglesscore').innerText = myTrianglesScore ?? 0;
-
-
-
-}

@@ -31,17 +31,6 @@ Array.prototype.randomitem = function () {
   return this[Math.floor((Math.random()*this.length))];
 }
 
-// All of teh above randomizerw ill pick a random item from a list
-
-mylist = ['cat','fish','bear','owl','mouse','dog','elefant','goose','rabbit'];
-
-r1 = randItem(mylist);
-r2 = randFromList(mylist);
-
-r3 =mylist.randomitem();
-
-console.log({'randItem':r1,'randFromList':r2,'prototype':r3, 'list':mylist})
-
 
 // generate a list of numbers to nearest 10.
 function rangeBig(start, stop, step) {
@@ -68,11 +57,32 @@ function rangeBig(start, stop, step) {
 };
 
 
-possNums = rangeBig(10,500,10);
 
-console.log('randomNum', possNums.randomitem());
-console.log('randomNum', possNums.randomitem());
-console.log('randomNum', possNums.randomitem());
-console.log('randomNum', possNums.randomitem());
-console.log('randomNum', possNums.randomitem());
-console.log('randomNum', possNums.randomitem());
+
+function logScore(activityID) {
+
+  myTotalScore = localStorage.getItem('myscore');
+  thisActivityScore = localStorage.getItem(activityID);
+
+
+  if(isNaN( thisActivityScore) || null=== thisActivityScore) {
+    thisActivityScore = 0;
+  }
+
+  if(isNaN( myTotalScore)  || null=== myTotalScore) {
+    myTotalScore = 0;
+  }
+
+  myTotalScore = parseInt(myTotalScore) + parseInt(thisScore);
+  thisActivityScore = parseInt(thisActivityScore) + parseInt(thisScore);
+
+
+  localStorage.setItem(activityID, thisActivityScore);
+  localStorage.setItem('myscore', myTotalScore);
+
+
+  // show or update visual scores
+  document.getElementById('totalscore').innerText = myTotalScore ?? 0;
+  document.getElementById(activityID).innerText = thisActivityScore ?? 0;
+
+}
