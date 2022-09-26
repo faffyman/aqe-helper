@@ -243,6 +243,7 @@ function drawTriangle(canvasID, points)
    triangle.height = parseInt((y1-y3)/10);
    triangle.area = (triangle.base * triangle.height) / 2;
    triangle.perimeter = parseInt(L1/10) + parseInt(L2/10) + parseInt(L3/10);
+   triangle.incorrect = [];
 
    console.log("Triangle", triangle);
  }
@@ -265,7 +266,7 @@ function checkAnswers() {
     isRecheck = true;
   },500);
   console.log({'score':thisScore})
-  logScore('trianglesscore');
+  logScore('trianglesscore', triangle);
 
   // Allow user to jump to next question now
   var nq = document.getElementById('nextquestion');
@@ -290,6 +291,7 @@ function checkSubmittedType() {
   } else if(submittedType != '' ) {
     document.getElementById('ttype').classList.remove('bg-green-300', 'text-green-900');
     document.getElementById('ttype').classList.add('bg-pink-400','text-red-800');
+    triangle.incorrect.push('Triangle Type')
   } else {
     document.getElementById('ttype').classList.remove('bg-green-300', 'text-green-900','bg-pink-400','text-red-800');
   }
@@ -308,6 +310,7 @@ function checkMissingAngle() {
   } else if(submittedAngle != '') {
     document.getElementById('angleq').classList.remove('bg-green-300', 'text-green-900');
     document.getElementById('angleq').classList.add('bg-pink-400','text-red-800');
+    triangle.incorrect.push('missing angle');
   } else {
     document.getElementById('angleq').classList.remove('bg-green-300', 'text-green-900','bg-pink-400','text-red-800');
   }
@@ -325,6 +328,7 @@ function checkPerimeter() {
   } else if(submittedAnswer != '') {
     document.getElementById('tperim').classList.remove('bg-green-300', 'text-green-900');
     document.getElementById('tperim').classList.add('bg-pink-400','text-red-800');
+    triangle.incorrect.push('perimieter of triangle');
   } else {
     document.getElementById('tperim').classList.remove('bg-green-300', 'text-green-900','bg-pink-400','text-red-800');
   }
@@ -342,6 +346,7 @@ function checkArea() {
   } else if(submittedAnswer != '') {
     document.getElementById('tarea').classList.remove('bg-green-300', 'text-green-900');
     document.getElementById('tarea').classList.add('bg-pink-400','text-red-800');
+    triangle.incorrect.push('area of a triangle');
   } else {
     document.getElementById('tarea').classList.remove('bg-green-300', 'text-green-900','bg-pink-400','text-red-800');
   }

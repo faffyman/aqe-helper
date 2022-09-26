@@ -29,19 +29,20 @@
 <script src="js/perimeters.js"></script>
 
 <!-- Nav Bar -->
-<nav class="dark:text-slate-800 font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full">
-  <div class="">
+<nav class="dark:text-slate-800 font-sans flex flex-col text-center sm:flex-row sm:text-left py-4 px-6 bg-white shadow sm:items-baseline w-full">
+  <div class="md:w-12">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 24 24" class="stroke-2 hover:stroke-2 stroke-sky-400 h-7 w-7 flex-shrink-1  fill-sky-400 hover:fill-sky-400"   data-tags="leaf"><g  class="fill-sky-600 hover:fill-cyan-800" transform="scale(0.0234375 0.0234375)">
       <path d="M1011.328 134.496c-110.752-83.928-281.184-134.034-455.91-134.034-216.12 0-392.226 75.456-483.16 207.020-42.708 61.79-66.33 134.958-70.208 217.474-3.454 73.474 8.884 154.726 36.684 242.146 94.874-284.384 359.82-507.102 665.266-507.102 0 0-285.826 75.232-465.524 308.192-0.112 0.138-2.494 3.090-6.614 8.698-36.080 48.278-67.538 103.162-91.078 165.328-39.87 94.83-76.784 224.948-76.784 381.782h128c0 0-19.43-122.222 14.36-262.79 55.89 7.556 105.858 11.306 150.852 11.306 117.678 0 201.37-25.46 263.388-80.124 55.568-48.978 86.198-114.786 118.624-184.456 49.524-106.408 105.654-227.010 268.654-320.152 9.33-5.332 15.362-14.992 16.056-25.716s-4.040-21.080-12.606-27.572z"></path>
     </g>
     </svg>
   </div>
-  <div class="">GROW</div>
-  <div class="mb-2 sm:mb-0">
+  <div class="md:w-40 text-4xl">GROW</div>
+  <div class="md:w-1/3">
     Total: <span id="totalscore"></span> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;Shapes Score: <span id="perimeterscore"></span>
+    &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;Questions Attempted: <span id="numquestions"></span>
   </div>
-  <div>
-    <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+  <div class="mb-4 sm:mb-0 md:w-1/2 flex justify-end ">
+    <ul class="flex flex-col  p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
       <li>
         <a href="index.html" target="_top"  class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
       </li>
@@ -77,28 +78,28 @@
 
       <div class="py-4">
 
-        <label class="mb-2 " for="angleq">What is the length of missing Side A ?</label><br />
-        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="angleq" type="text" />
+        <label class="mb-2 " for="sideA">What is the length of missing Side A ?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="sideA" type="text" />
         <br /><br />
       </div>
 
       <div class="py-4">
 
-        <label class="mb-2 " for="angleq">What is the length of missing Side B ?</label><br />
-        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="angleq" type="text" />
+        <label class="mb-2 " for="sideB">What is the length of missing Side B ?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="sideB" type="text" />
         <br /><br />
       </div>
 
 
       <div class=" py-4">
-        <label class="mb-2 " for="tperim">What is the PERIMETER of this shape?</label><br />
-        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="tperim" type="text" />
+        <label class="mb-2 " for="perim">What is the PERIMETER of this shape?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="perim" type="text" />
 
       </div>
 
       <div class="py-4">
-        <label class="mb-2 " for="tarea">What is the AREA of the SHADEDE part?</label><br />
-        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="tarea" type="text" />
+        <label class="mb-2 " for="area">What is the AREA of the SHADED part?</label><br />
+        <input class="w-full max-w-lg rounded-lg border border-slate-200 px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500/40 active:ring active:ring-blue-500/40"   id="area" type="text" />
       </div>
 
 
