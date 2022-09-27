@@ -36,7 +36,6 @@ function calculateShape()
 {
   positions = ['TL', 'TR', 'BR', 'BL' ];
   cutOutRectangle.cutoutPosition =  positions.randomitem();
-  // for 1 to 6; draw line, turn 90deg, draw line
 
   possLengths= rangeBig(300,550,10);
   possHeights = rangeBig(250,480,10);
@@ -134,6 +133,8 @@ function drawShape(canvasID){
       context.fillStyle = 'white';
       context.fillText( cutOutRectangle.longSide +  ' cm',50 + (cutOutRectangle.longSidePx/2), 40 + (cutOutRectangle.longHeightPx) );
       context.fillText( cutOutRectangle.shortHeight +  ' cm',(25 + cutOutRectangle.longSidePx)  , 40 +  cutOutRectangle.indentHPx + (cutOutRectangle.shortHeightPx/2) );
+
+
     } else if (cutOutRectangle.cutoutPosition=='BR') {
 
       context.clearRect((51 + cutOutRectangle.shortSidePx),(51 + cutOutRectangle.shortHeightPx), cutOutRectangle.indentLPx, cutOutRectangle.indentHPx);
@@ -147,8 +148,8 @@ function drawShape(canvasID){
       context.fillText( cutOutRectangle.longHeight +  ' cm',15, 45 + (cutOutRectangle.longHeightPx/2) );
       context.fillText( cutOutRectangle.longSide +  ' cm',50 + (cutOutRectangle.longSidePx/2), 40  );
       context.fillStyle = 'white';
-      context.fillText(  cutOutRectangle.shortSide + ' cm' , parseInt(20 + cutOutRectangle.longSidePx) , 40 + (cutOutRectangle.shortHeightPx/2) );
-      context.fillText( cutOutRectangle.shortHeight +  ' cm',45 + (cutOutRectangle.shortSidePx/2) , 40 + cutOutRectangle.longHeightPx  );
+      context.fillText(  cutOutRectangle.shortHeight + ' cm' , parseInt(20 + cutOutRectangle.longSidePx) , 40 + (cutOutRectangle.shortHeightPx/2) );
+      context.fillText( cutOutRectangle.shortSide +  ' cm',45 + (cutOutRectangle.shortSidePx/2) , 40 + cutOutRectangle.longHeightPx  );
 
     } else if (cutOutRectangle.cutoutPosition=='BL') {
 
