@@ -111,3 +111,22 @@ function logScore(activityID, question) {
   document.getElementById('numquestions').innerText = numQuestions ?? 0;
 
 }
+
+function enableNextQuestionButton()
+{
+  var nq = document.getElementById('nextquestion');
+  nq.ariaDisabled = false;
+  nq.removeAttribute('disabled');
+  nq.classList.remove('bg-slate-300','text-slate-500','hover:bg-teal-100');
+  nq.classList.add('bg-white','text-teal-800','hover:bg-teal-100');
+}
+
+
+function disableNextQuestionButton()
+{
+  var nq = document.getElementById('nextquestion');
+  nq.ariaDisabled = true;
+  nq.setAttribute('disabled','true');
+  nq.classList.add('bg-slate-300','text-slate-500','hover:bg-teal-100');
+  nq.classList.remove('bg-white','text-teal-800','hover:bg-teal-100');
+}

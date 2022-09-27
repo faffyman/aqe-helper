@@ -200,11 +200,7 @@ function checkAnswers(){
   logScore('perimeterscore', cutOutRectangle);
 
   // Allow user to jump to next question now
-  var nq = document.getElementById('nextquestion');
-  nq.ariaDisabled = false;
-  nq.removeAttribute('disabled');
-  nq.classList.remove('bg-slate-300','text-slate-500','hover:bg-teal-100');
-  nq.classList.add('bg-white','text-teal-800','hover:bg-teal-100');
+  enableNextQuestionButton();
 
 }
 

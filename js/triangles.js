@@ -10,6 +10,7 @@ var triangle = {};
 var isRecheck = false; // initial state for new questions
 var thisScore = 0;
 
+var numbersimplifier =50;
 
 // Angle A is the angel opposite L1 or angle between L2 and L3
 // Angle B is the angel opposite L2 or angle between L1 and L3
@@ -154,9 +155,11 @@ function drawTriangle(canvasID, points)
     //context.moveTo((x2-x1)/2, y1+5);
     context.font = "12pt Arial";
 
-    L1Label ="Line a " + parseInt(L1/10) +" cm";
-    L2Label ="Line b " + parseInt(L2/10) +" cm";
-    L3Label ="Line c " + parseInt(L3/10) +" cm";
+
+
+    L1Label ="Line a " + parseInt(L1/numbersimplifier) +" cm";
+    L2Label ="Line b " + parseInt(L2/numbersimplifier) +" cm";
+    L3Label ="Line c " + parseInt(L3/numbersimplifier) +" cm";
     context.fillText(L1Label, (x2-x1)/2, y1+15);
     context.fillText(L2Label, ((x2-x3)/2)+x3+5, (((y2-y3)/2) + y3));
     context.fillText(L3Label, ((x3-x1)/2)+x1+5, y1-((y1-y3)/2)  );
@@ -208,7 +211,7 @@ function drawTriangle(canvasID, points)
 
       // ADD a height label
       context.fillStyle = 'red'
-      theight =  parseInt((y1-y3)/10);
+      theight =  parseInt((y1-y3)/numbersimplifier);
       context.fillText("h=" +theight +"cm", x3+2, y3 + ((y1-y3)/2) -30);
 
     }
@@ -239,10 +242,10 @@ function drawTriangle(canvasID, points)
    triangle.angleC = parseInt(C);
    triangle.missingAngle = 180 - triangle.angleB - triangle.angleC;
    triangle.type = type;
-   triangle.base = parseInt(L1/10);
-   triangle.height = parseInt((y1-y3)/10);
+   triangle.base = parseInt(L1/numbersimplifier);
+   triangle.height = parseInt((y1-y3)/numbersimplifier);
    triangle.area = (triangle.base * triangle.height) / 2;
-   triangle.perimeter = parseInt(L1/10) + parseInt(L2/10) + parseInt(L3/10);
+   triangle.perimeter = parseInt(L1/numbersimplifier) + parseInt(L2/numbersimplifier) + parseInt(L3/numbersimplifier);
    triangle.incorrect = [];
 
    console.log("Triangle", triangle);
@@ -269,14 +272,14 @@ function checkAnswers() {
   logScore('trianglesscore', triangle);
 
   // Allow user to jump to next question now
-  var nq = document.getElementById('nextquestion');
-  nq.ariaDisabled = false;
-  nq.removeAttribute('disabled');
-  nq.classList.remove('bg-slate-300','text-slate-500','hover:bg-teal-100');
-  nq.classList.add('bg-white','text-teal-800','hover:bg-teal-100');
-
+  enableNextQuestionButton();
 
 }
+
+
+
+
+
 
 function checkSubmittedType() {
   submittedType = document.getElementById('ttype').value;
