@@ -90,6 +90,7 @@ function drawShape(canvasID){
   var canvas = document.getElementById(canvasID);
   if (canvas.getContext) {
     var context = canvas.getContext('2d');
+    context.font = "18px arial";
 
     // clear it in case it had a previous drawing.
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -100,7 +101,7 @@ function drawShape(canvasID){
     context.moveTo(50,50);
 
     // Fill Large Outer Rectangle
-    context.fillStyle = '#7c7c7c';
+    context.fillStyle = '#bbbbbb';
     context.fillRect(50,50, cutOutRectangle.longSidePx, cutOutRectangle.longHeightPx);
 
     if(cutOutRectangle.cutoutPosition=='TL') {
@@ -113,7 +114,7 @@ function drawShape(canvasID){
       context.fillText(  cutOutRectangle.shortSide + ' cm' , parseInt(40 + cutOutRectangle.indentLPx + (  cutOutRectangle.shortSidePx / 2) ), 45);
       context.fillText( cutOutRectangle.shortHeight +  ' cm',15 , 40 +  cutOutRectangle.indentHPx + (cutOutRectangle.shortHeightPx/2) );
 
-      context.fillStyle = 'white';
+//      context.fillStyle = 'white';
       context.fillText( cutOutRectangle.longSide +  ' cm',50 + (cutOutRectangle.longSidePx/2), 40 + (cutOutRectangle.longHeightPx) );
       context.fillText( cutOutRectangle.longHeight +  ' cm',15 + cutOutRectangle.longSidePx, 45 + (cutOutRectangle.longHeightPx/2) );
 
@@ -130,7 +131,7 @@ function drawShape(canvasID){
       context.fillText(  cutOutRectangle.shortSide + ' cm' , parseInt(40 + (  cutOutRectangle.shortSidePx / 2) ), 45);
       context.fillText( cutOutRectangle.longHeight +  ' cm',20 , 50 + (cutOutRectangle.longHeightPx/2) );
 
-      context.fillStyle = 'white';
+      //context.fillStyle = 'white';
       context.fillText( cutOutRectangle.longSide +  ' cm',50 + (cutOutRectangle.longSidePx/2), 40 + (cutOutRectangle.longHeightPx) );
       context.fillText( cutOutRectangle.shortHeight +  ' cm',(25 + cutOutRectangle.longSidePx)  , 40 +  cutOutRectangle.indentHPx + (cutOutRectangle.shortHeightPx/2) );
 
@@ -147,7 +148,7 @@ function drawShape(canvasID){
 
       context.fillText( cutOutRectangle.longHeight +  ' cm',15, 45 + (cutOutRectangle.longHeightPx/2) );
       context.fillText( cutOutRectangle.longSide +  ' cm',50 + (cutOutRectangle.longSidePx/2), 40  );
-      context.fillStyle = 'white';
+      //context.fillStyle = 'white';
       context.fillText(  cutOutRectangle.shortHeight + ' cm' , parseInt(20 + cutOutRectangle.longSidePx) , 40 + (cutOutRectangle.shortHeightPx/2) );
       context.fillText( cutOutRectangle.shortSide +  ' cm',45 + (cutOutRectangle.shortSidePx/2) , 40 + cutOutRectangle.longHeightPx  );
 
@@ -163,7 +164,7 @@ function drawShape(canvasID){
 
       context.fillText(  cutOutRectangle.shortHeight + ' cm' , 15, 45 + (cutOutRectangle.shortHeightPx/2));
       context.fillText( cutOutRectangle.longSide +  ' cm',50 + (cutOutRectangle.longSidePx/2), 40  );
-      context.fillStyle = 'white';
+      //context.fillStyle = 'white';
       context.fillText( cutOutRectangle.longHeight +  ' cm', parseInt(20 + cutOutRectangle.longSidePx) , 40 + (cutOutRectangle.longHeightPx/2) );
       context.fillText( cutOutRectangle.shortSide +  ' cm',45 + cutOutRectangle.indentLPx + (cutOutRectangle.shortSidePx/2) , 40 + cutOutRectangle.longHeightPx  );
 

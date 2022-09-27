@@ -153,14 +153,14 @@ function drawTriangle(canvasID, points)
 
     // Add Line Lengths (for Perimeter Questions)
     //context.moveTo((x2-x1)/2, y1+5);
-    context.font = "12pt Arial";
+    context.font = "18px Arial";
 
 
 
-    L1Label ="Line a " + parseInt(L1/numbersimplifier) +" cm";
-    L2Label ="Line b " + parseInt(L2/numbersimplifier) +" cm";
-    L3Label ="Line c " + parseInt(L3/numbersimplifier) +" cm";
-    context.fillText(L1Label, (x2-x1)/2, y1+15);
+    L1Label = parseInt(L1/numbersimplifier) +" cm";
+    L2Label = parseInt(L2/numbersimplifier) +" cm";
+    L3Label = parseInt(L3/numbersimplifier) +" cm";
+    context.fillText(L1Label, ((x2-x1)/2) + (x1-10), y1+15);
     context.fillText(L2Label, ((x2-x3)/2)+x3+5, (((y2-y3)/2) + y3));
     context.fillText(L3Label, ((x3-x1)/2)+x1+5, y1-((y1-y3)/2)  );
 
