@@ -9,7 +9,7 @@
       "purpose": "any"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/aqe-helper/index.html",
   "background_color": "#0f172a",
   "display": "standalone",
   "scope": "/aqe-helper/",
