@@ -138,7 +138,7 @@ function registerOurServiceWorker() {
   console.log("Installing service worker")
   //First check if browser support service worker
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js").then(
+    navigator.serviceWorker.register("service-worker.js").then(
       registration => {
         console.log(
           "ServiceWorker registration successful with scope: ",
