@@ -12,6 +12,6 @@
   "start_url": "/index.html",
   "background_color": "#0f172a",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/aqe-helper/",
   "theme_color": "#0f172a"
 }

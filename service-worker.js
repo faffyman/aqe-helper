@@ -17,8 +17,11 @@ self.addEventListener('fetch', function(evt) {
 function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
-      '   js/vendor/tailwind.3.1.8.js',
-      './asset'
+      'js/vendor/tailwind.3.1.8.js',
+      'js/main.js',
+      'js/triangles.js',
+      'js/perimeters.js',
+      'js/kilo-litres.js'
     ]);
   });
 }
