@@ -1,12 +1,17 @@
 {
-  "short_name": "",
-  "name": "",
-  "icons": [{
-    "src": "icon.png",
-    "type": "image/png",
-    "sizes": "192x192"
-  }],
-  "start_url": "/?utm_source=homescreen",
-  "background_color": "#fafafa",
-  "theme_color": "#fafafa"
+  "short_name": "GRW ",
+  "name": "Transfer Test Quizzer",
+  "icons": [
+    {
+      "src": "https://faffyman.github.io/aqe-helper/icon.png",
+      "type": "image/png",
+      "sizes": "108x108",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0f172a"
 }
